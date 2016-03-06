@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="columns small-12">
+    <h3>Ranking Table</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns small-12">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>Game</th>
+          <th>Player 1</th>
+          <th>Player 2</th>
+          <th>Winner </th>
+          <th>Winner Health Remaining</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @games.each do |g| %>
+          <tr>
+            <td><%= g.id %></td>
+            <td><%= g.player_1.name %></td>
+            <td><%= g.player_2.name %></td>
+            <td><%= g.winner_player.try(:name) || "Game in progress" %></td>
+            <td><%= g.winner_remaining_health || "Game in progress" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,16 +1,7 @@
 <div class="row">
   <div class="small-12 columnw">
     <h2>Create a new player</h2>
-
-    <p class="lead">
-      Use the following form to create a new player for the game.
-    </p>
-
-    <p>
-      If have already created a player, you don't need to create a new one.
-      Just go to <%= link_to 'new game', new_game_path %> and select your player from
-      the dropdown.
-    </p>
+    <p class="lead">Use the following form to create a new player for the game.</p>
   </div>
 </div>
 
@@ -29,6 +20,16 @@
         </div>
       </div>
     <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns small-12">
+    <p>
+      If you already have a player, you don't need to create a new one.
+      Just go to <%= link_to 'new game', new_game_path %> and select your player from
+      the dropdown.
+    </p>
   </div>
 </div>
 
