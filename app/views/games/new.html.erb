@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="columns small-12">
+    <h2>Select players for new game</h2>
+    <p class="lead">Do not have a player yet? Create one <%= link_to 'here!', new_player_path %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns small-12">
+    <%= form_for(@game) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="row">
+        <div class="columns small-6">
+          <%= f.label :player_1_id, 'Player 1' %>
+          <%= f.select :player_1_id, options_for_select(Player.all.order(:name).pluck(:name,:id), @game.player_1_id) %>
+        </div>
+        <div class="columns small-6">
+          <%= f.label :player_2_id, 'Player 2' %>
+          <%= f.select :player_2_id, options_for_select(Player.all.order(:name).pluck(:name,:id), @game.player_2_id) %>
+        </div>
+        <%= f.submit 'Start Game!', class: 'expand success button radius' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
