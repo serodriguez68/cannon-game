@@ -1,0 +1,19 @@
+<h2>Create a new player</h2>
+
+<p class="lead">
+  Use the following form to create a new player for the game.
+</p>
+
+<p>
+  If have already created a player, you don't need to create a new one.
+  Just go to <%= link_to 'new game', "#" %> and select your player from
+  the dropdown.
+</p>
+
+<%= form_for(@player) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :name, 'Player Name' %>
+  <%= f.text_field :name, required: true, pattern: ".{3, 100}", title: '3 to 100 characters' %>
+  <%= f.submit 'Create new player', class: 'expand success button radius' %>
+<% end %>
+
