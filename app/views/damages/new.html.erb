@@ -10,12 +10,14 @@
   <div class="columns medium-6">
     <div class="panel">
       <p class="text-center">Player 1: <strong><%= @game.player_1.name %></strong></p>
-      Remaining Health:
-      <div class="progress small-12 success radius">
+      <%= content_tag :div, class: "progress small-12 radius #{health_bar_color_class(@game.player_1_remaining_health)}" do %>
         <%= content_tag :span, class: 'meter', style: "width: #{@game.player_1_remaining_health}%"  do %>
         <% end %>
-      </div>
-      <p class="text-right"><%= "#{@game.player_1_remaining_health}/#{Game::MAX_HEALTH}" %></p>
+      <% end %>
+      <p class="text-right">
+        <i class="fi-heart red"></i>
+        <%= "#{@game.player_1_remaining_health}/#{Game::MAX_HEALTH}" %>
+      </p>
     </div>
   </div>
   <!-- /Player 1 -->
@@ -24,12 +26,14 @@
   <div class="columns medium-6">
     <div class="panel">
       <p class="text-center">Player 2:<strong> <%= @game.player_2.name %></strong></p>
-      Remaining Health:
-      <div class="progress small-12 success radius">
+      <%= content_tag :div, class: "progress small-12 radius #{health_bar_color_class(@game.player_2_remaining_health)}" do %>
         <%= content_tag :span, class: 'meter', style: "width: #{@game.player_2_remaining_health}%"  do %>
         <% end %>
-      </div>
-      <p class="text-right"><%= "#{@game.player_2_remaining_health}/#{Game::MAX_HEALTH}" %></p>
+      <% end %>
+      <p class="text-right">
+        <i class="fi-heart red"></i>
+        <%= "#{@game.player_2_remaining_health}/#{Game::MAX_HEALTH}" %>
+      </p>
     </div>
   </div>
   <!-- /Player 2 -->
@@ -40,7 +44,7 @@
 <div class="row">
   <div class="columns small-12">
     <div class="panel">
-      <h3 class="text-center"><%= @game.current_player_to_fire.name %> your turn!</h3>
+      <h3 class="text-center"><%= @game.current_player_to_fire.name %> it's your turn!</h3>
       <%= form_for([@game, @damage]) do |f| %>
           <%= f.hidden_field :player_id, value: @game.current_player_to_recieve_damage.try(:id) %>
           <%= f.submit 'Fire!', class: 'expand radius alert button' %>

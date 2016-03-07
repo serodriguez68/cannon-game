@@ -11,10 +11,20 @@
       The game is a small RoR 4.2.5 app running in ruby 2.3.0 and deployed to <%= link_to "Heroku", "https://www.heroku.com/", target: "_blank" %>.
       Here is a list of this app's main features:
     </p>
-    <ul>
+    <ul class="circle">
       <li>Fully responsive using <%= link_to "Foundation 5", "http://foundation.zurb.com/", target: "_blank" %></li>
-      <li>Powered using <%= link_to "PostgreSQL", target: "_blank" %></li>
+      <li>Powered using <%= link_to "PostgreSQL", "http://www.postgresql.org/", target: "_blank" %></li>
+      <li>Source code available on <%= link_to "GitHub", "https://github.com/serodriguez68/cannon-game", target: "_blank" %></li>
+      <li>
+        Developed by Sergio Rodríguez
+        <%= link_to "<i class='fi-social-linkedin''></i>".html_safe, "https://www.linkedin.com/in/serodriguez68", target: "_blank" %>
+        <%= link_to "<i class='fi-social-github''></i>".html_safe, "https://github.com/serodriguez68", target: "_blank" %>
+        <%= link_to "<i class='fi-social-twitter''></i>".html_safe, "https://twitter.com/SergioRoTor", target: "_blank" %>
+      </li>
     </ul>
+
+
+    <%= link_to "Lets Play!", new_game_path, class: 'large expand radius success button' %>
   </div>
 </div>
 
